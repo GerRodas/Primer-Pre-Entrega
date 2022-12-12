@@ -19,7 +19,7 @@ export class ProductManager {
     }
 
     write = list => {
-        return fs.promises.writeFile(this.path, JSON.stringify(list))
+        return fs.promises.writeFile(this.path, JSON.stringify(list, null, 3))
     }
 
     getproducts = async () => {
