@@ -152,3 +152,4 @@ app.delete('/api/products/:id', async(req, res)=>{
 })
 
 app.listen(PORT, () => console.log(`Corriendo el servidor por el puerto ${PORT}`))
+
