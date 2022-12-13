@@ -27,7 +27,7 @@ export class CartManager {
         return data
     }
 
-    addCart = async (object) => {
+    addProductToCart = async (object) => {
         const list = await this.read()
         const nextID = this.getNextId(list)
         object.id = nextID

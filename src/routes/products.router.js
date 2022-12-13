@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { ProductManager } from "../Managers/ProductManager.js";
 
-const manager = new ProductManager('./db/DataBase.json');
+const manager = new ProductManager('./db/productos.json');
 const router = Router();
 
 router.get('/', async (req,res)=>{
@@ -54,9 +54,9 @@ router.get('/:id', async (req,res)=>{
 
 router.post("/", async (req, res) => {
     try {
-        const {title, description, thumbnail, price, code, stock} = req.body
+        const {title, description, thumbnail, price, code, stock, category, status} = req.body
 
-        if(!title || !description || !thumbnail || !price || !code || !stock){
+        if(!title || !description || !price || !code || !stock || !status ||!category){
             return res.send({success: false, error: "Las variables son obligatorias"});
 
         }
@@ -68,6 +68,8 @@ router.post("/", async (req, res) => {
             price,
             code,
             stock,
+            category,
+            status: true,
         });
 
         res.send({success: true, product: savedProduct})
