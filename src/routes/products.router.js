@@ -1,19 +1,20 @@
 import { Router } from "express";
-import { producto } from "../Managers/index.js";
+import { ProductManager } from "../Managers/ProductManager.js";
 
+const manager = new ProductManager('./db/DataBase.json');
 const router = Router();
 
 router.get('/', async (req,res)=>{
     
-    const allProducts = await producto.getproducts();
+    const products = await manager.getproducts();
 
-    res.send({producto: allProducts})
+    res.send({products})
 
 });
 
-router.post('/', (req,res)=>{
-    const user = req.body
-    user.push(user)
+router.post('/', async (req,res)=>{
+    
+    const products = await manager.addProduct();
 
     res.json({status: "success"})
 

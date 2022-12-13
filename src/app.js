@@ -8,6 +8,6 @@ app.use(express.urlencoded({extended: true}));
 
 app.use('/api/products', productsRouter);
 app.use('/api/carts', cartsRouter);
-app.use('/',(req,res) => res.send('HOME'));
+app.use('/',(req,res) => res.send('ESTA ES LA PAGINA PARA COMPRAR COSITAS'));
 
 app.listen(8080);

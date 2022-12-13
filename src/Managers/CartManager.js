@@ -65,9 +65,9 @@ export class CartManager {
         const exists = data.some(i =>i.id === id)
             if (exists){
                 await this.write(object)
-                return "Objeto eliminado"
+                return "Carrito eliminado"
             } else {
-                return "Objeto no encontrado"
+                return "Carrito no encontrado"
             }                    
         }
         
