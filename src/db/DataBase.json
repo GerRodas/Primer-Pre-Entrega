@@ -124,6 +124,14 @@
       "code": "abc122",
       "stock": 3,
       "id": 15
+   },
+   {
+      "title": "Algo",
+      "description": "Loco",
+      "thumbnail": "Imagen 63",
+      "price": 1800,
+      "code": "abc122",
+      "stock": 3,
+      "id": 16
    }
-   
 ]
