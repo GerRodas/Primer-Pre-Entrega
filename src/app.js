@@ -32,13 +32,3 @@ socketServer.on('connection', socket=>{
     })
 })
 
-
-/*
-app.get('/', (req, res)=>{
-    let testUser={
-        name: "Hilda",
-        last_name:"Martinez"
-    }
-    res.render('index', testUser);
-})
-*/
