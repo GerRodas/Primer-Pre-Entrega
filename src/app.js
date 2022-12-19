@@ -20,8 +20,8 @@ app.set('view engine','handlebars');
 app.use(express.static(__dirname+'/public'));
 app.use('/',viewsRouter);
 
-//app.use('/api/products', productsRouter);
-//app.use('/api/carts', cartsRouter);
+app.use('/api/products', productsRouter);
+app.use('/api/carts', cartsRouter);
 
 
 socketServer.on('connection', socket=>{

@@ -11,11 +11,28 @@ router.get('/', async (req,res)=>{
     res.send({carts})
 })
 
-router.post('/', (req,res)=>{
-    const cart = req.body
+router.get('/:id', async (req,res)=>{
+    const id = parseInt(req.params.id)
+    const cart = await manager.getCartById(id);
+
+    res.json({cart})
+})
+
+router.post('/', async (req,res)=>{
+    const newCart = await manager.getCart()
     carts.push(cart)
 
-    res.json({status: "success"})
+    res.json({status: "success", cart})
+
+})
+
+router.post('/:cid/product/:pid', async (req,res)=>{
+    const cartID = parseInt(req.params.cid)
+    const productID = parseInt(req.params.pid)
+    
+    const cart = await manager.addProductToCart(cartID, productID)
+
+    res.json({status: "success", cart})
 
 })
 

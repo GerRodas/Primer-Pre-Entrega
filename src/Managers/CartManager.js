@@ -27,15 +27,42 @@ export class CartManager {
         return data
     }
 
-    addProductToCart = async (object) => {
-        const list = await this.read()
-        const nextID = this.getNextId(list)
-        object.id = nextID
+    addProductToCart = async (cartID, productID) => {
+        const cart = await this.getCartById(cartID)
+        
+        let found = false
+        for (let i = 0; i < cart.products.length; i++) {
+            if(cart.products[i].id == productID){
 
-        list.push(object)
+                cart.products[i].quantity++
 
-        await this.write(list)
+                found = true
+                break
+            }
+        }
+        if (!found) {
+            cart.products.push({id: productID, quantity: 1})
+        }
+            
+        await this.write(cart)
+        }
+    
+    create = async (newCart) =>{
+        const carts = await this.read()
+        const NextID = this.getNextId(carts)
+
+        const newCart = {
+            id: NextID,
+            products: []
+        }
+
+        carts.push(newCart)
+
+        await this.write(carts)
+
+        return newCart
     }
+
     updateCart = async (id, object) => {
         object.id = id
         const list = await this.read()
