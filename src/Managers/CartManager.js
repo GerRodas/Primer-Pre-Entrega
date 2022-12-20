@@ -51,7 +51,7 @@ export class CartManager {
         const carts = await this.read()
         const NextID = this.getNextId(carts)
 
-        const newCart = {
+        newCart = {
             id: NextID,
             products: []
         }
