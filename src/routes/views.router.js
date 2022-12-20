@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/', async(req,res)=>{
     const products = await producto.getproducts();
-    res.render('index',{});
+    res.render('index',{products});
 })
 
 router.get("/realtimeproducts", (req,res)=>{
