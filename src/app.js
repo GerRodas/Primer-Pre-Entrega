@@ -30,9 +30,9 @@ const httpServer = app.listen(8080, () => console.log("Servidor corriendo en el 
 const io = new Server(httpServer);
 
 io.on('connection', (socket)=>{
-    console.log("Nuevo cliente conectado")
+    console.log(`Nuevo cliente conectado en socket id:${socket.id}`)
     
-    io.sockets.emit('product',[{id:1, title: "productooooo"}])
+    io.sockets.emit('products',[{id:1, title: "productooooo"}])
 
     })
 
