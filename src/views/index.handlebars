@@ -10,20 +10,21 @@
             <th>Stock</th>
         </tr>
         {{#if products.length}}
-        {{#each product}}
+        {{#each products}}
         <tr>
             <td>{{this.title}}</td>
             <td>{{this.description}}</td>
             <td>{{this.price}}</td>
             <td><img height="72px" width="72px" src={{this.thumbnail}} /></td>
-            <td>{{this.Stock}}</td>
+            <td>{{this.stock}}</td>
         </tr>
         {{/each}}
         {{/if}}
     </table>
 
 </div>
-
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/index.js"></script>
 
 <style>
     table,

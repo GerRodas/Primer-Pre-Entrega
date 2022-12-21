@@ -1,7 +1,7 @@
-import { ProductManager } from "./ProductManager.js";
+import { ProductManager } from './ProductManager.js';
 import { CartManager } from "./CartManager.js";
 
-export const producto = new ProductManager('./src/db/DataBase.json');
+export const producto = new ProductManager('./src/db/productos.json');
 export const cart = new CartManager('./src/db/CartBase.json');
 
 
